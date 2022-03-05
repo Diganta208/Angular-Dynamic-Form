@@ -1,0 +1,52 @@
+<div [formGroup]="form">
+
+    <div [ngSwitch]="field.controlType">
+
+        <mat-form-field *ngSwitchCase="'textbox'" appearance="fill">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput [formControlName]="field.key" [id]="field.key" [type]="field.type" value="field.value"
+                (ngChange)="checkValidOrNot($event)">
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'dropdown'" appearance="fill">
+            <mat-label>{{field.label}}</mat-label>
+            <mat-select [formControlName]="field.key">
+                <mat-option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'autocomplete'" appearance="fill">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput [matAutocomplete]="auto" [formControlName]="field.key">
+            <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let opt of filteredOptions" [value]="opt.key">
+                    {{opt.value}}
+                </mat-option>
+            </mat-autocomplete>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'password'" appearance="fill">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput (input)="checkValidOrNot(form)" [formControlName]="field.key" [id]="field.key"
+            [type]="showPass? 'text': 'password' ">
+            <mat-icon matSuffix (click)="showPass = !showPass">{{showPass ? 'visibility' : 'visibility_off'}}
+            </mat-icon>
+        </mat-form-field>
+
+        <mat-form-field *ngSwitchCase="'number'" appearance="fill">
+            <mat-label>{{field.label}}</mat-label>
+            <input matInput [formControlName]="field.key" [id]="field.key" [type]="field.type">
+        </mat-form-field>
+    </div>
+
+    <div class="errorMessage"
+        *ngIf="(!isValid && form.controls[field.key].touched) && field.key!='password_confirmation'">
+        {{field.label}} is required
+    </div>
+
+    <div class="errorMessage"
+        *ngIf="field.key=='password_confirmation' && form.controls[field.key].hasError('matching')">Password must
+        match
+    </div>
+</div>

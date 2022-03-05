@@ -1,0 +1,84 @@
+[
+    {
+      "controlType": "textbox",
+      "key": "first_name",
+      "label": "First name",
+      "value": "",
+      "required": true,
+      "order": 1
+    },
+    {
+      "controlType": "textbox",
+      "key": "last_name",
+      "label": "Last name",
+      "value": "",
+      "required": true,
+      "order": 2
+    },
+    {
+      "controlType": "textbox",
+      "key": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "order": 3
+    },
+    {
+      "controlType": "password",
+      "key": "password",
+      "label": "Password",
+      "type": "password",
+      "required": true,
+      "order": 4
+    },
+    {
+      "controlType": "password",
+      "key": "password_confirmation",
+      "label": "Password Confirmation",
+      "type": "password",
+      "required": true,
+      "order": 5
+    },
+    {
+      "controlType": "autocomplete",
+      "key": "role",
+      "label": "Role",
+      "value": "",
+      "options": [
+        {"key": "super-admin",  "value": "Super Admin"},
+        {"key": "admin",  "value": "Admin"}
+      ],
+      "required": true,
+      "order": 6
+    },
+    {
+      "controlType": "number",
+      "key": "phone",
+      "label": "Phone",
+      "type": "number",
+      "order": 7
+    },
+    {
+      "controlType": "autocomplete",
+      "key": "country_code",
+      "label": "Country Code",
+      "options": [
+        {"key": "IN",  "value": "IN"},
+        {"key": "BAN",  "value": "BAN"},
+        {"key": "PAK",  "value": "PAK"}
+      ],
+      "order": 8
+    },
+    {
+      "controlType": "autocomplete",
+      "key": "status",
+      "label": "Status",
+      "options": [
+        {"key": "1",  "value": "A"},
+        {"key": "2",  "value": "P"},
+        {"key": "3",  "value": "D"}
+      ],
+      "required": true,
+      "order": 8
+    }
+  ]

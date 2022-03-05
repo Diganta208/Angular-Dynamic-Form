@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-content>
+        <div *ngIf="dis">
+            <form (ngSubmit)="onSubmit()" [formGroup]="form" enctype="multipart/form-data">
+
+                <div *ngFor="let field of fields" class="form-row">
+                    <app-form-structure [field]="field" [form]="form"></app-form-structure>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit" [disabled]="!form.valid">Save</button>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>

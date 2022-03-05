@@ -1,0 +1,21 @@
+[
+    {
+      "controlType": "textbox",
+      "key": "category_name",
+      "label": "Name",
+      "value": "",
+      "required": true,
+      "order": 1
+    },
+    {
+      "controlType": "dropdown",
+      "key": "status",
+      "label": "Status",
+      "options": [
+        {"key": 1,  "value": "Active"},
+        {"key": 0,  "value": "Inactive"}
+      ],
+      "required": true,
+      "order": 2
+    }
+  ]
